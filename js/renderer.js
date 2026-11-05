@@ -15,12 +15,12 @@ export const makeForageCard = () => {
   values.forEach((v) => {
     //we prepare the div template that's currenlty blank
     const fCard = document.createElement("div");
-    fCard.className = "mb-2 flex items-center gap-2";
+    fCard.className = "items-center gap-2";
 
     //we define the actual element here, ts so weird there's like two wrappers
     fCard.innerHTML = `
         
-          <div class="pl-2 pr-1 w-full border-2">
+          <div class="pl-2 pr-1  border-2">
             <div class="border-b-2 flex place-content-between">
               <div class="flex gap-2 text-md">
                 <p>Name:</p>
@@ -54,11 +54,9 @@ export const makeForageCard = () => {
             </div>
           </div>
 
-          <div class="space-y-2">
+          <div class="space-y-2 py-2">
             <button class="deleter" data-id="${v.id}" >DEL</button>
-
-            <p class="border-y-2">=====</p>
-            <button>UPD</button>
+            <button class="updater" data-id="${v.id}">UPD</button>
           </div>
         
         `;
@@ -71,4 +69,23 @@ export const makeForageCard = () => {
 
     list.appendChild(fCard);
   });
+};
+
+export const renderUpdateForm = (id) => {
+
+  const item = JSON.parse(localStorage.getItem(id));
+  const form = document.querySelector("#foraging-form");
+
+  form.dataset.editId = id;
+
+  form.querySelector("#name").value = item.name;
+  form.querySelector("#artist").value = item.artist;
+  form.querySelector("#type").value = "Album";
+  form.querySelector("#track-count").value = item.trackcount;
+  form.querySelector("#discovered").value = item.discovered;
+
+  // entering edit mode
+  document.querySelector("#add-btn").hidden = true;
+  document.querySelector("#update-btn").hidden = false;
+  document.querySelector("#cancel-btn").hidden = false;
 };

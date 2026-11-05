@@ -41,7 +41,11 @@
           <label for="discovered">Discovered</label>
           <input type="date" id="discovered" name="discovered" required />
 
-          <button class="w-[50%] my-2" type="submit">Add</button>
+          <div id="buttonholder" class="flex gap-2 w-full">
+            <button type="submit" id="add-btn">Add</button>
+            <button type="submit" id="update-btn" hidden>Update</button>
+            <button type="button" id="cancel-btn" hidden>Cancel</button>
+          </div>
         </form>
       </section>
 
@@ -49,8 +53,6 @@
         <h2>Foraging Targets</h2>
 
         <div id="foragingList" class="overflow-y-auto max-h-70"></div>
-
-   
       </section>
     </main>
   </body>
