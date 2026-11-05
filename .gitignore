@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Environment variables / secrets
+.env
+.env.*
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor folders
+.vscode/
+.idea/
+
+# NOTE: output.css is intentionally NOT ignored.
+# GitHub Pages doesn't run the Tailwind build, so the generated file must be committed.
